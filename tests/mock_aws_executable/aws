@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+"""Mock AWS CLI executable for testing."""
+from pathlib import Path
+
+import typer
+
+app = typer.Typer(add_completion=False)
+ec2 = typer.Typer()
+
+app.add_typer(ec2, name="ec2")
+
+
+@ec2.command()
+def describe_instances(output: str = typer.Option(...)):
+    assert output == "json"
+    current_directory = Path(__file__).parent
+    json_contents = (current_directory / "output.json").read_text()
+    typer.echo(json_contents)
+
+
+if __name__ == "__main__":
+    app()
