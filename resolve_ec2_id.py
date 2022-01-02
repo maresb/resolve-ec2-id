@@ -6,10 +6,12 @@ import shlex
 import sys
 from collections import defaultdict
 from subprocess import CalledProcessError, check_output
-from typing import DefaultDict, NoReturn, Optional
+from typing import TYPE_CHECKING, DefaultDict, NoReturn, Optional
 
 import typer
-from mypy_boto3_ec2.type_defs import DescribeInstancesResultTypeDef, InstanceTypeDef
+
+if TYPE_CHECKING:
+    from mypy_boto3_ec2.type_defs import DescribeInstancesResultTypeDef, InstanceTypeDef
 
 if sys.version_info < (3, 8):
     import importlib_metadata
