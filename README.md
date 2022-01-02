@@ -4,6 +4,7 @@
 
 - [GitLab](https://gitlab.com/bmares/resolve-ec2-id)
 - [GitHub](https://github.com/maresb/resolve-ec2-id)
+- [PyPI](https://pypi.org/project/resolve-ec2-id/)
 
 ## Introduction
 
@@ -24,7 +25,15 @@ This package is perhaps not so useful because very similar functionality can be 
 aws ec2 describe-instances --filters 'Name=tag:Name,Values=my-named-instance' --query 'Reservations[*].Instances[*].{Instance:InstanceId}' --output text
 ```
 
-The above AWS CLI command will succeed regardless of how many instances with a given tag are found.
+However, this tool has slightly better error-handling; the above AWS CLI command will not generate an error in the case that no instance is found.
+
+## Installation
+
+In order to install in a clean and isolated Python environment, it is recommended to use [pipx](https://github.com/pypa/pipx):
+
+```bash
+pipx install resolve-ec2-id
+```
 
 ## Examples
 
