@@ -40,7 +40,7 @@ pipx install resolve-ec2-id
 Assuming you are using the Bash shell, to start an instance if you know the name but not the ID:
 
 ```bash
-$ aws ec2 start-instances --output=yaml --instance-ids="$(resolve_ec2_id my-named-instance)"
+$ aws ec2 start-instances --output=yaml --instance-ids="$(resolve-ec2-id my-named-instance)"
 StartingInstances:
 - CurrentState:
     Code: 0
