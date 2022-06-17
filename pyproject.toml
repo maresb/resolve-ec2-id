@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "resolve-ec2-id"
-version = "1.0.0"
+version = "1.0.1"
 description = "Look up the EC2 instance ID given an instance name."
 authors = ["Ben Mares <services-resolve-ec2-id@tensorial.com>"]
 license = "MIT"
