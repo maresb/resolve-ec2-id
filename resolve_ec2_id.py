@@ -109,6 +109,7 @@ def resolve_ec2_id(name: str) -> str:
         instance.get("InstanceId", "_MISSING"): instance
         for reservation in describe_instances_dict["Reservations"]
         for instance in reservation.get("Instances", [])
+        if instance.get("State", {"Name": "missing"}).get("Name") not in ["terminated"]
     }
     """Dictionary of instance objects indexed by instance ID."""
 
